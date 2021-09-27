@@ -4,5 +4,11 @@
   },
   "globals": {
     "angular": true
+  },
+  "rules": {
+    "max-len": [
+      2,
+      110
+    ]
   }
 }
