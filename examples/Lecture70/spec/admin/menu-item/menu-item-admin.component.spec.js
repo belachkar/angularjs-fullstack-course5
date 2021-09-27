@@ -8,13 +8,13 @@ describe('The menuItemAdmin component', function() {
 
   var menuItem = {
     id: 1,
-    short_name: "A1",
-    name: "Egg Drop Soup",
-    description: "chicken broth with egg drop",
+    short_name: 'A1',
+    name: 'Egg Drop Soup',
+    description: 'chicken broth with egg drop',
     price_small: 2.25,
     price_large: 4.5,
-    small_portion_name: "pint",
-    large_portion_name: "quart",
+    small_portion_name: 'pint',
+    large_portion_name: 'quart',
     image_present: true
   };
 

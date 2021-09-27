@@ -1,16 +1,16 @@
 (function () {
 
-angular.module('SimpleFormsApp',[]);
+  angular.module('SimpleFormsApp',[]);
 
-angular.module('SimpleFormsApp')
-.controller('RegistrationController', RegistrationController);
+  angular.module('SimpleFormsApp')
+    .controller('RegistrationController', RegistrationController);
 
-function RegistrationController() {
-  var reg = this;
+  function RegistrationController() {
+    var reg = this;
 
-  reg.submit = function () {
-    reg.completed = true;
-  };
-}
+    reg.submit = function () {
+      reg.completed = true;
+    };
+  }
 
 })();

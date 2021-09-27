@@ -1,4 +1,4 @@
-describe("ShoppingListController", function() {
+describe('ShoppingListController', function() {
 
   beforeEach(module('ShoppingListApp'));
 
@@ -10,7 +10,7 @@ describe("ShoppingListController", function() {
 
     var ShoppingListServiceErrorMock = {};
     ShoppingListServiceErrorMock.addItem = function (name, quantity) {
-      throw new Error("Test message.");
+      throw new Error('Test message.');
     };
     ShoppingListServiceErrorMock.getItems = function () {
       return null;
@@ -18,13 +18,13 @@ describe("ShoppingListController", function() {
 
     shoppingListController =
       $controller('ShoppingListController',
-                  {ShoppingListService: ShoppingListServiceErrorMock});
+        { ShoppingListService: ShoppingListServiceErrorMock });
 
   }));
 
-  it("should change error message in controller", function() {
+  it('should change error message in controller', function() {
     shoppingListController.addItem();
-    expect(shoppingListController.errorMessage).toBe("Test message.");
+    expect(shoppingListController.errorMessage).toBe('Test message.');
   });
 
 });

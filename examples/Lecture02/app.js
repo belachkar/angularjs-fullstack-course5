@@ -1,12 +1,12 @@
 var student = {
-  name: "",
-  type: "student"
+  name: '',
+  type: 'student',
 };
 
 document.addEventListener('DOMContentLoaded', contentLoaded);
 
 function contentLoaded(event) {
-  document.getElementById('name').addEventListener("keyup", keyUp);
+  document.getElementById('name').addEventListener('keyup', keyUp);
 }
 
 function keyUp(event) {
@@ -22,6 +22,6 @@ function calculateNumericOutput() {
   }
 
   // Insert result into page
-  var output = "Total Numeric value of person's name is " + totalNameValue;
+  var output = 'Total Numeric value of person\'s name is ' + totalNameValue;
   document.getElementById('output').innerText = output;
 }

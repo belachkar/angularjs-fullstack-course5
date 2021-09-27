@@ -56,11 +56,11 @@ describe('The loading component', function() {
     expect(loadingComponent.show).toBe(false);
 
     // Trigger event to show
-    $rootScope.$emit('spinner:activate', {on: true});
+    $rootScope.$emit('spinner:activate', { on: true });
     expect(loadingComponent.show).toBe(true);
 
     // Trigger event to hide
-    $rootScope.$emit('spinner:activate', {on: false});
+    $rootScope.$emit('spinner:activate', { on: false });
     expect(loadingComponent.show).toBe(false);
   });
 

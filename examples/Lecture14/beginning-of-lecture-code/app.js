@@ -1,16 +1,16 @@
 (function () {
-'use strict';
+  'use strict';
 
-angular.module('CounterApp', [])
-.controller('CounterController', CounterController);
+  angular.module('CounterApp', [])
+    .controller('CounterController', CounterController);
 
-CounterController.$inject = ['$scope'];
-function CounterController($scope) {
+  CounterController.$inject = ['$scope'];
+  function CounterController($scope) {
 
-  $scope.showNumberOfWatchers = function () {
+    $scope.showNumberOfWatchers = function () {
 
-  };
+    };
 
-}
+  }
 
 })();

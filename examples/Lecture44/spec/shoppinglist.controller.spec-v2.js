@@ -1,11 +1,11 @@
-describe("Spec v2: ShoppingListController", function() {
+describe('Spec v2: ShoppingListController', function() {
 
   beforeEach(function () {
     module(function ($provide) {
       $provide.service('ShoppingListServiceErrorMock', function () {
         var service = this;
         service.addItem = function (name, quantity) {
-          throw new Error("Test message.");
+          throw new Error('Test message.');
         };
 
         service.getItems = function () {
@@ -25,13 +25,13 @@ describe("Spec v2: ShoppingListController", function() {
 
     shoppingListController =
       $controller('ShoppingListController',
-                  {ShoppingListService: ShoppingListServiceErrorMock});
+        { ShoppingListService: ShoppingListServiceErrorMock });
 
   }));
 
-  it("should change error message in controller", function() {
+  it('should change error message in controller', function() {
     shoppingListController.addItem();
-    expect(shoppingListController.errorMessage).toBe("Test message.");
+    expect(shoppingListController.errorMessage).toBe('Test message.');
   });
 
 });

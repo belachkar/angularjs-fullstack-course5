@@ -15,7 +15,7 @@
 
   function redefineProp(xhr, prop, fn) {
     try {
-      Object.defineProperty(xhr, prop, {get: fn});
+      Object.defineProperty(xhr, prop, { get: fn });
     } catch (e) {/*ignore*/
     }
   }
@@ -169,7 +169,7 @@
                   if (!xhr.__completed) {
                     xhr.getAllResponseHeaders = function () {
                     };
-                    _this.complete(null, {status: 204, statusText: 'No Content'});
+                    _this.complete(null, { status: 204, statusText: 'No Content' });
                   }
                 }, FileAPI.noContentTimeout || 10000);
               }
@@ -386,7 +386,7 @@ if (!window.FileReader) {
     this.onabort = this.onerror = this.onload = this.onloadstart = this.onloadend = this.onprogress = null;
 
     var constructEvent = function (type, evt) {
-      var e = {type: type, target: _this, loaded: evt.loaded, total: evt.total, error: evt.error};
+      var e = { type: type, target: _this, loaded: evt.loaded, total: evt.total, error: evt.error };
       if (evt.result != null) e.target.result = evt.result;
       return e;
     };

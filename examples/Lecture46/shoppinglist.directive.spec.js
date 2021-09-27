@@ -26,27 +26,27 @@ describe('shoppingList directive', function() {
     var directiveTemplate = null;
     var req = new XMLHttpRequest();
     req.onload = function() {
-        directiveTemplate = this.responseText;
+      directiveTemplate = this.responseText;
     };
 
     // Note that the relative path may be different from your unit test HTML file.
     // Using `false` as the third parameter to open() makes the operation synchronous.
-    req.open("get", "shoppingList.html", false);
+    req.open('get', 'shoppingList.html', false);
     req.send();
-    $templateCache.put("shoppingList.html", directiveTemplate);
+    $templateCache.put('shoppingList.html', directiveTemplate);
   }));
 
   it('Replaces the element with the appropriate content', function() {
 
     var list = {};
     list.items = [
-      {name: "item 1", quantity: "1"},
-      {name: "item 2", quantity: "2"}
+      { name: 'item 1', quantity: '1' },
+      { name: 'item 2', quantity: '2' }
     ];
     $rootScope.list = list;
 
     // Compile a piece of HTML containing the directive
-    var html = "<shopping-list my-list='list' title='test title'></shopping-list>"
+    var html = '<shopping-list my-list=\'list\' title=\'test title\'></shopping-list>';
     var element = $compile(html)($rootScope);
 
     // fire all the watches, so the scope expressions will be evaluated

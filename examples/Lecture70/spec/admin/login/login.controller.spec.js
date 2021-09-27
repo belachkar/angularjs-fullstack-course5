@@ -99,7 +99,7 @@ describe('The LoginController', function() {
     expect(loginController.valid()).toBe(false);
 
     // Go to category state
-    $state.go('admin.auth.category', {categoryId: 'L'});
+    $state.go('admin.auth.category', { categoryId: 'L' });
     $rootScope.$digest();
     $httpBackend.flush();
     expect($state.current.name).toBe('admin.auth.category');

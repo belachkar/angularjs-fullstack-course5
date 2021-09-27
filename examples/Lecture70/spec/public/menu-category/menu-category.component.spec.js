@@ -4,12 +4,12 @@ describe('The menuCategory component', function() {
   var menuCategoryComponent;
   var category =
     {
-      "id": 61,
-      "short_name": "L",
-      "name": "Lunch",
-      "special_instructions": "Sunday-Friday 11:15am-3:00pm. Served with your choice of rice (Vegetable Fried RIce, Steamed Rice, Brown Rice), AND EITHER soup (Hot & Sour, Wonton, Vegetable, Egg Drop, Chicken Corn Soup) OR veggie egg roll. $1.00 extra to have both soup and egg roll.",
-      "created_at": "2016-08-05T19:41:59.147Z",
-      "updated_at": "2016-08-05T19:41:59.147Z"
+      'id': 61,
+      'short_name': 'L',
+      'name': 'Lunch',
+      'special_instructions': 'Sunday-Friday 11:15am-3:00pm. Served with your choice of rice (Vegetable Fried RIce, Steamed Rice, Brown Rice), AND EITHER soup (Hot & Sour, Wonton, Vegetable, Egg Drop, Chicken Corn Soup) OR veggie egg roll. $1.00 extra to have both soup and egg roll.',
+      'created_at': '2016-08-05T19:41:59.147Z',
+      'updated_at': '2016-08-05T19:41:59.147Z'
     };
 
   /**

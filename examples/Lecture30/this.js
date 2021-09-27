@@ -1,10 +1,10 @@
 function Person() {
-  this.fullName = "Yaakov";
-  this.fav = "Cookies";
+  this.fullName = 'Yaakov';
+  this.fav = 'Cookies';
 
   this.describe = function () {
     console.log('this is: ', this);
-    console.log(this.fullName + " likes " + this.fav);
+    console.log(this.fullName + ' likes ' + this.fav);
   };
 }
 

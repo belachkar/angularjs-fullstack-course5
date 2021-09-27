@@ -1,4 +1,4 @@
-describe("CookieDetector", function() {
+describe('CookieDetector', function() {
   var itemsWithoutCookies;
   var itemsWithCookies;
 
@@ -7,12 +7,12 @@ describe("CookieDetector", function() {
     itemsWithCookies = ['bread', 'milk', 'Cookies'];
   });
 
-  it("should be able to detect no cookies", function() {
+  it('should be able to detect no cookies', function() {
     var result = detectCookie(itemsWithoutCookies);
     expect(result).not.toBe(true);
   });
 
-  it("should be able to detect cookies", function() {
+  it('should be able to detect cookies', function() {
     var result = detectCookie(itemsWithCookies);
     expect(result).toBe(true);
   });

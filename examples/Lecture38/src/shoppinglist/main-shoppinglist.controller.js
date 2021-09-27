@@ -1,16 +1,16 @@
 (function () {
-'use strict';
+  'use strict';
 
-angular.module('ShoppingList')
-.controller('MainShoppingListController', MainShoppingListController);
+  angular.module('ShoppingList')
+    .controller('MainShoppingListController', MainShoppingListController);
 
 
-// MainShoppingListController.$inject = ['ShoppingListService'];
-// function MainShoppingListController(ShoppingListService) {
-MainShoppingListController.$inject = ['items'];
-function MainShoppingListController(items) {
-  var mainList = this;
-  mainList.items = items;
+  // MainShoppingListController.$inject = ['ShoppingListService'];
+  // function MainShoppingListController(ShoppingListService) {
+  MainShoppingListController.$inject = ['items'];
+  function MainShoppingListController(items) {
+    var mainList = this;
+    mainList.items = items;
 
   // mainList.$onInit = function () {
   //   ShoppingListService.getItems()
@@ -18,6 +18,6 @@ function MainShoppingListController(items) {
   //     mainList.items = result;
   //   });
   // };
-}
+  }
 
 })();

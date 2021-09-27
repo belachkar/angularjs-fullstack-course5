@@ -49,16 +49,16 @@
     getWindowLocation: function() { return window.location; }
   });
 
-  var catchingExceptions = queryString.getParam("catch");
-  env.catchExceptions(typeof catchingExceptions === "undefined" ? true : catchingExceptions);
+  var catchingExceptions = queryString.getParam('catch');
+  env.catchExceptions(typeof catchingExceptions === 'undefined' ? true : catchingExceptions);
 
-  var throwingExpectationFailures = queryString.getParam("throwFailures");
+  var throwingExpectationFailures = queryString.getParam('throwFailures');
   env.throwOnExpectationFailure(throwingExpectationFailures);
 
-  var random = queryString.getParam("random");
+  var random = queryString.getParam('random');
   env.randomizeTests(random);
 
-  var seed = queryString.getParam("seed");
+  var seed = queryString.getParam('seed');
   if (seed) {
     env.seed(seed);
   }
@@ -69,9 +69,9 @@
    */
   var htmlReporter = new jasmine.HtmlReporter({
     env: env,
-    onRaiseExceptionsClick: function() { queryString.navigateWithNewParam("catch", !env.catchingExceptions()); },
-    onThrowExpectationsClick: function() { queryString.navigateWithNewParam("throwFailures", !env.throwingExpectationFailures()); },
-    onRandomClick: function() { queryString.navigateWithNewParam("random", !env.randomTests()); },
+    onRaiseExceptionsClick: function() { queryString.navigateWithNewParam('catch', !env.catchingExceptions()); },
+    onThrowExpectationsClick: function() { queryString.navigateWithNewParam('throwFailures', !env.throwingExpectationFailures()); },
+    onRandomClick: function() { queryString.navigateWithNewParam('random', !env.randomTests()); },
     addToExistingQueryString: function(key, value) { return queryString.fullStringWithNewParam(key, value); },
     getContainer: function() { return document.body; },
     createElement: function() { return document.createElement.apply(document, arguments); },
@@ -89,7 +89,7 @@
    * Filter which specs will be run by matching the start of the full name against the `spec` query param.
    */
   var specFilter = new jasmine.HtmlSpecFilter({
-    filterString: function() { return queryString.getParam("spec"); }
+    filterString: function() { return queryString.getParam('spec'); }
   });
 
   env.specFilter = function(spec) {
