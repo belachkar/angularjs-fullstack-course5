@@ -21,14 +21,16 @@
     };
 
     // Manule watchers
-    $scope.$watch('onceCounter', (newValue, oldValue) => {
-      console.log('onceCounter old Value:', oldValue);
-      console.log('onceCounter new Value:', newValue);
-    });
+    // $scope.$watch('onceCounter', (newValue, oldValue) => {
+    //   console.log('onceCounter old Value:', oldValue);
+    //   console.log('onceCounter new Value:', newValue);
+    // });
 
-    $scope.$watch('counter', (newValue, oldValue) => {
-      console.log('counter old Value:', oldValue);
-      console.log('counter new Value:', newValue);
-    });
+    // $scope.$watch('counter', (newValue, oldValue) => {
+    //   console.log('counter old Value:', oldValue);
+    //   console.log('counter new Value:', newValue);
+    // });
+
+    $scope.$watch(() => console.log('Digest Loop triggered.'));
   }
 })();
