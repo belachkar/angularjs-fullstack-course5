@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingListApp', [])
+  angular
+    .module('ShoppingListApp', [])
     .controller('ShoppingListController', ShoppingListController)
     .provider('ShoppingList', ShoppingListProvider)
     .config(Config);
@@ -33,7 +34,6 @@
     };
   }
 
-
   // If not specified, maxItems assumed unlimited
   function ShoppingListService(maxItems) {
     var service = this;
@@ -42,15 +42,13 @@
     var items = [];
 
     service.addItem = function (itemName, quantity) {
-      if ((maxItems === undefined) ||
-        (maxItems !== undefined) && (items.length < maxItems)) {
+      if (maxItems === undefined || (maxItems !== undefined && items.length < maxItems)) {
         var item = {
           name: itemName,
-          quantity: quantity
+          quantity: quantity,
         };
         items.push(item);
-      }
-      else {
+      } else {
         throw new Error('Max items (' + maxItems + ') reached.');
       }
     };
@@ -64,12 +62,11 @@
     };
   }
 
-
   function ShoppingListProvider() {
     var provider = this;
 
     provider.defaults = {
-      maxItems: 100
+      maxItems: 100,
     };
 
     provider.$get = function () {
@@ -78,5 +75,4 @@
       return shoppingList;
     };
   }
-
 })();
