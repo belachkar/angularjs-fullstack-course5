@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingListApp', [])
+  angular
+    .module('ShoppingListApp', [])
     .controller('ShoppingListAddController', ShoppingListAddController)
     .controller('ShoppingListShowController', ShoppingListShowController)
     .service('ShoppingListService', ShoppingListService);
@@ -18,14 +19,12 @@
     };
   }
 
-
   ShoppingListShowController.$inject = ['ShoppingListService'];
   function ShoppingListShowController(ShoppingListService) {
     var showList = this;
 
     showList.items = ShoppingListService.getItems();
   }
-
 
   function ShoppingListService() {
     var service = this;
@@ -36,14 +35,11 @@
     service.addItem = function (itemName, quantity) {
       var item = {
         name: itemName,
-        quantity: quantity
+        quantity: quantity,
       };
       items.push(item);
     };
 
-    service.getItems = function () {
-      return items;
-    };
+    service.getItems = () => items;
   }
-
 })();
