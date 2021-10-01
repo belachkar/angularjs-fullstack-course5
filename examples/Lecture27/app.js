@@ -1,32 +1,30 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingListDirectiveApp', [])
+  angular
+    .module('ShoppingListDirectiveApp', [])
     .controller('ShoppingListController1', ShoppingListController1)
     .controller('ShoppingListController2', ShoppingListController2)
     .factory('ShoppingListFactory', ShoppingListFactory)
     .directive('listItemDescription', ListItemDescription)
     .directive('listItem', ListItem);
 
-
   function ListItem() {
     var ddo = {
       restrict: 'E',
-      templateUrl: 'listItem.html'
+      templateUrl: 'listItem.html',
     };
 
     return ddo;
   }
-
 
   function ListItemDescription() {
     var ddo = {
-      template: '{{ item.quantity }} of {{ item.name }}'
+      template: '{{ item.quantity }} of {{ item.name }}',
     };
 
     return ddo;
   }
-
 
   // LIST #1 - controller
   ShoppingListController1.$inject = ['ShoppingListFactory'];
@@ -50,7 +48,6 @@
     };
   }
 
-
   // LIST #2 - controller
   ShoppingListController2.$inject = ['ShoppingListFactory'];
   function ShoppingListController2(ShoppingListFactory) {
@@ -70,14 +67,12 @@
       } catch (error) {
         list.errorMessage = error.message;
       }
-
     };
 
     list.removeItem = function (itemIndex) {
       shoppingList.removeItem(itemIndex);
     };
   }
-
 
   // If not specified, maxItems assumed unlimited
   function ShoppingListService(maxItems) {
@@ -87,15 +82,13 @@
     var items = [];
 
     service.addItem = function (itemName, quantity) {
-      if ((maxItems === undefined) ||
-        (maxItems !== undefined) && (items.length < maxItems)) {
+      if (maxItems === undefined || (maxItems !== undefined && items.length < maxItems)) {
         var item = {
           name: itemName,
-          quantity: quantity
+          quantity: quantity,
         };
         items.push(item);
-      }
-      else {
+      } else {
         throw new Error('Max items (' + maxItems + ') reached.');
       }
     };
@@ -109,7 +102,6 @@
     };
   }
 
-
   function ShoppingListFactory() {
     var factory = function (maxItems) {
       return new ShoppingListService(maxItems);
@@ -117,5 +109,4 @@
 
     return factory;
   }
-
 })();
