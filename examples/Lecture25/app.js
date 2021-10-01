@@ -1,11 +1,11 @@
 (function () {
   'use strict';
 
-  angular.module('MenuCategoriesApp', [])
+  angular
+    .module('MenuCategoriesApp', [])
     .controller('MenuCategoriesController', MenuCategoriesController)
     .service('MenuCategoriesService', MenuCategoriesService)
     .constant('ApiBasePath', 'https://davids-restaurant.herokuapp.com');
-
 
   MenuCategoriesController.$inject = ['MenuCategoriesService'];
   function MenuCategoriesController(MenuCategoriesService) {
@@ -13,26 +13,26 @@
 
     var promise = MenuCategoriesService.getMenuCategories();
 
-    promise.then(function (response) {
-      menu.categories = response.data;
-    })
-      .catch(function (error) {
-        console.log('Something went terribly wrong.');
+    promise
+      .then(function (response) {
+        menu.categories = response.data;
+      })
+      .catch(function (err) {
+        console.log('Something went terribly wrong.', err.message || err);
       });
 
     menu.logMenuItems = function (shortName) {
       var promise = MenuCategoriesService.getMenuForCategory(shortName);
 
-      promise.then(function (response) {
-        console.log(response.data);
-      })
+      promise
+        .then(function (response) {
+          console.log(response.data);
+        })
         .catch(function (error) {
           console.log(error);
         });
     };
-
   }
-
 
   MenuCategoriesService.$inject = ['$http', 'ApiBasePath'];
   function MenuCategoriesService($http, ApiBasePath) {
@@ -41,25 +41,22 @@
     service.getMenuCategories = function () {
       var response = $http({
         method: 'GET',
-        url: (ApiBasePath + '/categories.json')
+        url: ApiBasePath + '/categories.json',
       });
 
       return response;
     };
-
 
     service.getMenuForCategory = function (shortName) {
       var response = $http({
         method: 'GET',
-        url: (ApiBasePath + '/menu_items.json'),
+        url: ApiBasePath + '/menu_items.json',
         params: {
-          category: shortName
-        }
+          category: shortName,
+        },
       });
 
       return response;
     };
-
   }
-
 })();
