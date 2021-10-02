@@ -1,29 +1,28 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingListDirectiveApp', [])
+  angular
+    .module('ShoppingListDirectiveApp', [])
     .controller('ShoppingListController', ShoppingListController)
     .factory('ShoppingListFactory', ShoppingListFactory)
-  // .controller('ShoppingListDirectiveController', ShoppingListDirectiveController)
+    // .controller('ShoppingListDirectiveController', ShoppingListDirectiveController)
     .directive('shoppingList', ShoppingListDirective);
-
 
   function ShoppingListDirective() {
     var ddo = {
       templateUrl: 'shoppingList.html',
       scope: {
         items: '<',
-        title: '@'
+        title: '@',
       },
       // controller: 'ShoppingListDirectiveController as list',
       controller: ShoppingListDirectiveController,
       controllerAs: 'list',
-      bindToController: true
+      bindToController: true,
     };
 
     return ddo;
   }
-
 
   function ShoppingListDirectiveController() {
     var list = this;
@@ -39,7 +38,6 @@
       return false;
     };
   }
-
 
   ShoppingListController.$inject = ['ShoppingListFactory'];
   function ShoppingListController(ShoppingListFactory) {
@@ -66,7 +64,6 @@
     };
   }
 
-
   // If not specified, maxItems assumed unlimited
   function ShoppingListService(maxItems) {
     var service = this;
@@ -75,15 +72,13 @@
     var items = [];
 
     service.addItem = function (itemName, quantity) {
-      if ((maxItems === undefined) ||
-        (maxItems !== undefined) && (items.length < maxItems)) {
+      if (maxItems === undefined || (maxItems !== undefined && items.length < maxItems)) {
         var item = {
           name: itemName,
-          quantity: quantity
+          quantity: quantity,
         };
         items.push(item);
-      }
-      else {
+      } else {
         throw new Error('Max items (' + maxItems + ') reached.');
       }
     };
@@ -97,7 +92,6 @@
     };
   }
 
-
   function ShoppingListFactory() {
     var factory = function (maxItems) {
       return new ShoppingListService(maxItems);
@@ -105,5 +99,4 @@
 
     return factory;
   }
-
 })();
